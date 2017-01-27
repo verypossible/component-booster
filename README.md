@@ -37,8 +37,7 @@ generator scripts, inspired by [Thoughtbot's wonderful Refills library](https://
 
 * When creating a new component for the library, use one of the included
   generators:
-  - `yarn run generate:stateless --  ComponentName`
-  - `yarn run generate:component --  ComponentName`
+  - `yarn run generate:component ComponentName`
 
 ## Common Commands
 
