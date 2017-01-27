@@ -5,7 +5,7 @@ import Header from './component'
 
 describe('(Header) component', () => {
   describe('with a valid title and nothing else', () => {
-    const subject = shallow(<Header title="hello"/>)
+    const subject = shallow(<Header title="hello" />)
 
     it('should have an h1', () => {
       const target = subject.find('h1')
@@ -58,13 +58,13 @@ describe('(Header) component', () => {
 
     it('should NOT render a p', () => {
       expect(() => {
-        const subject = shallow(<Header title="hello" priority="p" />)
+        shallow(<Header title="hello" priority="p" />)
       }).toThrowError('invalid priority')
     })
 
     it('should NOT render something random and stupid', () => {
       expect(() => {
-        const subject = shallow(<Header title="hello" priority="BAR" />)
+        shallow(<Header title="hello" priority="BAR" />)
       }).toThrowError('invalid priority')
     })
   })
