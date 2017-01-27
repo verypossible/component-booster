@@ -1,3 +1,4 @@
+/* @flow */
 import React from 'react'
 
 const VALID_PRIORITIES = [
@@ -5,13 +6,18 @@ const VALID_PRIORITIES = [
   'h2',
   'h3',
   'h4',
-  'h5',
+  'h5'
 ]
 
-export default function ({
+type HeaderProps = {
+  priority: string,
+  title: string
+}
+
+function Header ({
   priority = 'h1',
   title
-}) {
+}: HeaderProps) {
   const HeaderTag = priority
 
   if (!VALID_PRIORITIES.includes(HeaderTag)) {
@@ -26,3 +32,5 @@ export default function ({
     <HeaderTag>{title}</HeaderTag>
   )
 }
+
+export default Header

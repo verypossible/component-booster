@@ -1,0 +1,76 @@
+{
+  "parser"  : "babel-eslint",
+  "extends" : [
+    "standard",
+    "standard-react"
+  ],
+  "plugins": [
+    "babel",
+    "react",
+    "jest"
+  ],
+  "env"     : {
+    "browser" : true,
+    "jest": true
+  },
+  "globals" : {
+    "__DEV__"      : false,
+    "__PROD__"     : false,
+    "__DEBUG__"    : false,
+    "__COVERAGE__" : false,
+    "__PROTOCOL__" : false,
+    "__HOST__"     : false,
+    "__PORT__"     : false,
+    "__TEST_SERVER__" : false
+
+  },
+  "rules": {
+    "semi" : [2, "never"],
+    "max-len": [2, 120, 2],
+    "no-console": 2,
+    "generator-star-spacing": 0,
+    "jsx-quotes": ["error", "prefer-double"],
+    "react/jsx-indent-props": ["error", 2],
+    "react/jsx-max-props-per-line": ["off", { maximum: 1 }],
+    "react/jsx-no-duplicate-props": ["error", { ignoreCase: true }],
+    "react/jsx-no-literals": "off",
+    "react/jsx-no-undef": "error",
+    "react/jsx-pascal-case": ["error", { 
+      allowAllCaps: true, 
+      ignore: [], 
+    }],
+    "react/sort-prop-types": ["off", { 
+      ignoreCase: true, 
+      callbacksLast: false, 
+      requiredFirst: false, 
+    }],
+    "react/jsx-uses-react": ["error"],
+    "react/jsx-uses-vars": "error",
+    "react/prefer-es6-class": ["error", "always"],
+    "react/prefer-stateless-function": "error",
+    "react/react-in-jsx-scope": "error",
+    "react/jsx-space-before-closing": ["error", "always"],
+    "react/jsx-wrap-multilines": ["error", {
+      declaration: true,
+      assignment: true,
+      return: true
+    }],
+    "react/jsx-first-prop-new-line": ["error", "multiline"],
+    "react/jsx-equals-spacing": ["error", "never"],
+    "react/jsx-no-comment-textnodes": "error",
+    "react/no-unused-prop-types": ["error", {
+      customValidators: [],
+      skipShapeProps: true,
+    }],
+    "react/style-prop-object": "error",
+    "react/no-unescaped-entities": "error",
+    "react/no-children-prop": "error",
+    "react/jsx-tag-spacing": ["error", {
+      closingSlash: "never",
+      beforeSelfClosing: "always",
+      afterOpening: "never"
+    }],
+    "react/require-default-props": "error",
+
+  }
+}
