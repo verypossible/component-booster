@@ -1,0 +1,63 @@
+.boxModel {
+  width: 100%;
+  clear: both;
+}
+
+/* Box Model Settings */
+.boxDefault {
+  composes: boxModel;
+  display: block;
+  float: left;
+}
+.flexCol {
+  composes: boxModel;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  flex-flow: center;
+  align-items: center;
+}
+.flexRow {
+  composes: boxModel;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-flow: center;
+  align-items: center;
+}
+
+/* Section BG */
+.bgDefault {
+  background: transparent;
+}
+.white {
+  background: white;
+}
+.black {
+  background: black;
+}
+
+/* Section Padding */
+.paddingDefault {
+  padding: 1rem 0;
+}
+.paddingTrue {
+  composes: paddingDefault;
+}
+.paddingFalse {
+  padding: 0 0;
+}
+
+/* Section Margin */
+.marginDefault {
+  margin: 1rem auto;
+}
+.marginTrue {
+  composes: marginDefault;
+}
+.marginTop {
+  margin: 1rem auto 0 auto;
+}
+.marginBototom {
+  margin: 0 auto 1rem auto;
+}
