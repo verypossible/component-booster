@@ -1,18 +1,20 @@
 .container{
-	background-color: #ccc;
-  padding: 10px;
+	background-color: #fff;
+  border: 1px solid #f8f8f8;
+  width: 500px;
 }
 .title{
-  color: red;
   font-size: 2em;
+  margin: 0;
+  padding: 0 10px;
 }
 .body{
-  font-size: 1em
+  font-size: 1em;
+  padding: 10px;
 }
 .image{
-  max-width: 100px;
+  background-size: cover;
   overflow: hidden;
-}
-.image img{
-  max-width: 100%;
+  padding-bottom: 56.25%;
+  width: 100%
 }
