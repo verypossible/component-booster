@@ -28,7 +28,6 @@ const compiledRules = [{
 ]
 
 debug(`Loading webpack configuration for ${ENV}`)
-console.log('no export just log')
 
 export default {
   ...compiledOptions,

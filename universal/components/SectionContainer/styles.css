@@ -1,0 +1,42 @@
+/* Content Container Styles */
+.container {
+  width: 80%;
+  display: inherit;
+  margin: 0 auto;
+  padding: 0 3.75rem;
+  float: none;
+}
+
+/* Box Model Settings */
+.boxDefault {
+  display: block;
+  float: left;
+}
+.flexCol {
+  display: flex;
+  flex-direction: col;
+  flex-wrap: nowrap;
+  flex-flow: center;
+  align-items: center;
+}
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-flow: center;
+  align-items: center;
+}
+
+/* Section BG */
+.bgDefault {
+  background: transparent;
+}
+.white {
+  background: white;
+}
+.black {
+  background: black;
+}
+.gray {
+  background: gray;
+}
