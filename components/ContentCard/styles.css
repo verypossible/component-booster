@@ -1,0 +1,18 @@
+.container{
+	background-color: #ccc;
+  padding: 10px;
+}
+.title{
+  color: red;
+  font-size: 2em;
+}
+.body{
+  font-size: 1em
+}
+.image{
+  max-width: 100px;
+  overflow: hidden;
+}
+.image img{
+  max-width: 100%;
+}
