@@ -15,7 +15,7 @@ function renderImage (image, link) {
   const imageHeaderStyle = {
     backgroundImage: `url(${image})`
   }
-  const imageMarkup = <div className={styles.image} style={imageHeaderStyle} />
+  const imageMarkup = <div id="backgroundImage" className={styles.image} style={imageHeaderStyle} />
   if (link) {
     return (
       <a href={link}>
@@ -42,10 +42,10 @@ function renderTitle (title, link) {
 }
 
 const ContentCard = ({
-  title = 'ContentCard',
+  title = 'Content Card',
   body = 'testing some body text',
-  image = 'https://images.unsplash.com/photo-1485766410122-1b403edb53db?dpr=2&auto=compress',
-  link = 'http://joinspartan.com'
+  image,
+  link
 }: Props) => {
   return (
     <div className={styles.container}>
