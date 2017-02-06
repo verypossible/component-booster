@@ -1,10 +1,9 @@
 /* @flow */
 import React from 'react'
-import SectionFullWidth from '../SectionFullWidth'
-import SectionContainer from '../SectionContainer'
 import styles from './styles.css'
 
 type ContentListProps = {
+  customClass: string,
   hasTitle: boolean,
   title: string,
   bulletList: boolean,
@@ -47,35 +46,19 @@ function renderList ({
   )
 }
 
-const defaultList = [
-  'List Item',
-  'List Item',
-  'List Item',
-  'List Item',
-  'List Item',
-  'List Item',
-  'List Item',
-  'List Item',
-  'List Item',
-  'List Item',
-  'List Item',
-  'List Item'
-]
-
-function ContentList ({
-  hasTitle = true,
+const ContentList = ({
+  customClass,
+  hasTitle,
   title,
-  bulletList = true,
-  items = defaultList,
-  itemWidth = 'half'
-}: ContentListProps) {
+  bulletList,
+  items,
+  itemWidth
+}: ContentListProps) => {
   return (
-    <SectionFullWidth>
-      <SectionContainer>
-        {renderTitle({hasTitle, title})}
-        {renderList({bulletList, items, itemWidth})}
-      </SectionContainer>
-    </SectionFullWidth>
+    <div className={customClass}>
+      {renderTitle({hasTitle, title})}
+      {renderList({bulletList, items, itemWidth})}
+    </div>
   )
 }
 
