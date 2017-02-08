@@ -3,7 +3,6 @@ import React from 'react'
 import styles from './styles.css'
 
 type ContentListProps = {
-  customClass: string,
   hasTitle: boolean,
   title: string,
   bulletList: boolean,
@@ -47,7 +46,6 @@ function renderList ({
 }
 
 const ContentList = ({
-  customClass,
   hasTitle,
   title,
   bulletList,
@@ -55,7 +53,7 @@ const ContentList = ({
   itemWidth
 }: ContentListProps) => {
   return (
-    <div className={customClass}>
+    <div className={styles.listWrap}>
       {renderTitle({hasTitle, title})}
       {renderList({bulletList, items, itemWidth})}
     </div>

@@ -8,7 +8,6 @@ import ContentList from './component'
 const notes = 'This story demonstrates the props that can be passed to the List component.'
 
 const props = {
-  customClass: 'list-wrapper',
   hasTitle: [
     true,
     false
@@ -50,7 +49,6 @@ storiesOf('ContentList', module)
           title={text('Title of list:', props.title)}
           bulletList={boolean('Is this a bulleted list?', props.bulletList, props.bulletList[1])}
           itemWidth={select('how wide do you want each list item?', props.itemWidth)}
-          customClass={text('CSS class for the div wrapper:', props.customClass)}
           items={props.itemsList}
         />
       </WithNotes>
