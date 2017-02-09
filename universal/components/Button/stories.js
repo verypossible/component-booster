@@ -1,25 +1,22 @@
 import React from 'react'
 import { storiesOf } from '@kadira/storybook'
-import { decorateAction } from '@kadira/storybook-addon-actions'
 import { WithNotes } from '@kadira/storybook-addon-notes'
-import { withKnobs, text, boolean } from '@kadira/storybook-addon-knobs'
+import { withKnobs, text, boolean, select } from '@kadira/storybook-addon-knobs'
 
 import Button from './component'
-
-const handleClick = 'Click has been handled'
 
 const notes = 'This story demonstrates the props that can be passed to <Button />'
 
 const props = {
   disabled: false,
-  linkTo: '/',
-  color: 'dark',
+  external: false,
+  url: '/',
   label: 'Button Story',
+  color: [
+    'dark',
+    'light'
+  ]
 }
-
-const exampleAction = decorateAction([
-  args => args.slice(0, 1),
-])
 
 storiesOf('Button', module)
   .addDecorator(withKnobs)
@@ -28,9 +25,9 @@ storiesOf('Button', module)
       <WithNotes notes={notes}>
         <Button
           disabled={boolean('Disabled', props.disabled)}
-          linkTo={text('Target', props.linkTo)}
-          color={text('Color', props.color)}
-          handleClick={exampleAction(handleClick)}
+          external={boolean('External', props.external)}
+          url={text('Target', props.url)}
+          color={select('Color', props.color, props.color[0])}
         >
           {text('Label', props.label)}
         </Button>
