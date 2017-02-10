@@ -9,9 +9,12 @@ const notes = 'This story demonstrates the props that can be passed to <Button /
 
 const props = {
   disabled: false,
-  external: false,
   url: '/',
   label: 'Button Story',
+  target: [
+    '_self',
+    '_blank'
+  ],
   color: [
     'dark',
     'light'
@@ -25,12 +28,11 @@ storiesOf('Button', module)
       <WithNotes notes={notes}>
         <Button
           disabled={boolean('Disabled', props.disabled)}
-          external={boolean('External', props.external)}
-          url={text('Target', props.url)}
+          target={select('External', props.target, props.target[0])}
+          url={text('URL Target', props.url)}
           color={select('Color', props.color, props.color[0])}
-        >
-          {text('Label', props.label)}
-        </Button>
+          text={text('Label Text', props.label)}
+        />
       </WithNotes>
     )
   })

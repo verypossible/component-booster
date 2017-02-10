@@ -4,27 +4,36 @@ import { shallow } from 'enzyme'
 
 describe('(Button) component', () => {
   describe('without any props', () => {
-    const subject = shallow(<Button />)
+    it('will break because children or text are not found', () => {
+      expect(() => {
+        shallow(<Button />)
+      }).toThrowError('you need to supply either children or some text')
+    })
 
-    it('renders the Button', () => {
-      const target = subject.find('a')
+    it('will not break when we pass some text', () => {
+      const subject = shallow(<Button text="test test" />)
+      expect(subject.find('a').text()).toEqual('test test')
+    })
 
-      expect(target.length).toEqual(1)
+    it('will not break when we pass some children', () => {
+      const subject = shallow(<Button><section /></Button>)
+      expect(subject.find('section').length).toEqual(1)
+    })
+
+    it('will render chilren instead of text if we pass both', () => {
+      const subject = shallow(<Button text="test test"><section /></Button>)
+      expect(subject.find('section').length).toEqual(1)
+      expect(subject.find('a').text()).toEqual('')
     })
   })
 
   describe('with a URL', () => {
     const props = {
-      url: 'blank_url'
+      url: 'blank_url',
+      text: 'hello'
     }
 
     const subject = shallow(<Button {...props} />)
-
-    it('renders the Button', () => {
-      const target = subject.find('a')
-
-      expect(target.length).toEqual(1)
-    })
 
     it('renders the anchor href URL', () => {
       const target = subject.find('a')
@@ -36,53 +45,45 @@ describe('(Button) component', () => {
   describe('with a URL and button is DISABLED', () => {
     const props = {
       url: 'blank_url',
-      disabled: true
+      disabled: true,
+      text: 'test case text'
     }
 
     const subject = shallow(<Button {...props} />)
-
-    it('renders the Button', () => {
-      const target = subject.find('a')
-
-      expect(target.length).toEqual(1)
+    const targetProps = subject.find('a').props()
+    it('overrides the URL to be a #', () => {
+      expect(targetProps.href).toEqual('#')
     })
 
-    it('renders the Button as DISABLED', () => {
-      const target = subject.find('a')
-      const statusTarget = subject.find({prop: 'disabled'})
-
-      expect(target.length).toEqual(1)
-      expect(statusTarget).toBeTruthy()
+    it('creates a click handler', () => {
+      expect(targetProps.onClick).toBeInstanceOf(Function)
     })
   })
 
   describe('with a URL and button is ENABLED', () => {
     const props = {
       url: 'blank_url',
-      disabled: false
+      disabled: false,
+      text: 'test case text'
     }
 
     const subject = shallow(<Button {...props} />)
+    const targetProps = subject.find('a').props()
 
-    it('renders the Button', () => {
-      const target = subject.find('a')
-
-      expect(target.length).toEqual(1)
+    it('sets the URL to what we pass in', () => {
+      expect(targetProps.href).toEqual('blank_url')
     })
 
-    it('renders the Button as ENABLED', () => {
-      const target = subject.find('a')
-      const statusTarget = subject.props().disabled
-
-      expect(target.length).toEqual(1)
-      expect(statusTarget).toBeFalsy()
+    it('assigns a click handler', () => {
+      expect(targetProps.onClick).toEqual(Function)
     })
   })
 
-  describe('with a URL and external target', () => {
+  describe('with a URL and user supplied target', () => {
     const props = {
       url: 'blank_url',
-      external: true
+      target: '_blank',
+      text: 'text text'
     }
 
     const subject = shallow(<Button {...props} />)
@@ -91,14 +92,14 @@ describe('(Button) component', () => {
       const target = subject.find('a')
 
       expect(target.length).toEqual(1)
-      expect(target.props().target).toMatch('blank')
+      expect(target.props().target).toEqual('_blank')
     })
   })
 
   describe('with a URL and internal target', () => {
     const props = {
       url: 'blank_url',
-      external: false
+      text: 'text text'
     }
 
     const subject = shallow(<Button {...props} />)
@@ -107,30 +108,7 @@ describe('(Button) component', () => {
       const target = subject.find('a')
 
       expect(target.length).toEqual(1)
-      expect(target.props().target).toMatch('self')
-    })
-  })
-
-  describe('with a URL and COLOR', () => {
-    const props = {
-      url: 'blank_url',
-      color: 'dark'
-    }
-
-    const subject = shallow(<Button {...props} />)
-
-    it('renders the Button', () => {
-      const target = subject.find('a')
-
-      expect(target.length).toEqual(1)
-    })
-
-    it('renders the Button with COLOR', () => {
-      const target = subject.find('a')
-      const colorTarget = subject.instance().props.color
-
-      expect(target.length).toEqual(1)
-      expect(colorTarget).toEqual('dark')
+      expect(target.props().target).toEqual('_self')
     })
   })
 })

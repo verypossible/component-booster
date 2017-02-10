@@ -38,14 +38,14 @@
   color: #FFF;
 }
 
-.disabled.dark, .disabled.dark:hover {
+.dark.disabled, .dark.disabled:hover {
+  pointer-events: none;
   border-color: #aaaaaa;
   color: #aaaaaa;
-  pointer-events: none;
 }
 
-.disabled.light, .disabled.light:hover {
+.light.disabled, .light.disabled:hover {
+  pointer-events: none;
   border-color: #d1d1d1;
   color: #d1d1d1;
-  pointer-events: none;
 }

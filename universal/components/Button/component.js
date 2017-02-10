@@ -5,61 +5,44 @@ import styles from './styles.css'
 
 type ButtonProps = {
   children: any,
+  text: string,
   url: string,
-  segmentProps: Object,
+  href: string,
+  onClick: Function,
+  className: string,
   disabled: boolean,
-  external: boolean,
+  target: '_self' | '_blank',
   color: 'dark' | 'light'
 }
 
 function Button ({
   children,
+  text,
   url,
   color,
-  segmentProps,
-  disabled,
-  external
+  disabled = false,
+  target = '_self'
 }: ButtonProps) {
+  if (!children && !text) {
+    throw new Error('you need to supply either children or some text')
+  }
+
+  const props = {
+    className: `${styles[color]} ${styles.button}`,
+    href: url,
+    onClick: Function,
+    target: target
+  }
+
   if (disabled) {
-    if (external) {
-      return (
-        <a
-          href={url}
-          className={styles[color] + ' ' + styles.disabled + ' ' + styles.button}
-          target="_blank"
-        >
-          {children}
-        </a>
-      )
-    }
-    return (
-      <a
-        href={url}
-        className={styles[color] + ' ' + styles.disabled + ' ' + styles.button}
-        target="_self"
-      >
-        {children}
-      </a>
-    )
+    props.href = '#'
+    props.onClick = (e) => e.preventDefault()
+    props.className = props.className + ' ' + styles.disabled
   }
-  if (external) {
-    return (
-      <a
-        href={url}
-        className={styles[color] + ' ' + styles.button}
-        target="_blank"
-      >
-        {children}
-      </a>
-    )
-  }
+
   return (
-    <a
-      href={url}
-      className={styles[color] + ' ' + styles.button}
-      target="_self"
-    >
-      {children}
+    <a {...props}>
+      {children || text}
     </a>
   )
 }
