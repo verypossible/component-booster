@@ -1,7 +1,7 @@
 import React from 'react'
 import { configure, addDecorator } from '@kadira/storybook';
 
-const req = require.context('../components', true, /.stories.js$/)
+const req = require.context('../universal/components', true, /.stories.js$/)
 
 function loadStories() {
   req.keys().forEach((filename) => req(filename))
