@@ -1,0 +1,19 @@
+.container{
+	background-color: #fff;
+  border: 1px solid #f8f8f8;
+}
+.title{
+  font-size: 2em;
+  margin: 0;
+  padding: 0 10px;
+}
+.body{
+  font-size: 1em;
+  padding: 10px;
+}
+.image{
+  background-size: cover;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  width: 100%
+}
