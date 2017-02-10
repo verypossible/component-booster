@@ -60,7 +60,6 @@ describe('(Component) ContentCard', () => {
 
     it('should render an <h2> tag containing the title', () => {
       const target = subject.find('h2')
-      // console.log(target.html())
       expect(target.html()).toEqual('<h2>test title</h2>')
     })
   })
