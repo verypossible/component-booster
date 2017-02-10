@@ -1,9 +1,6 @@
 /* @flow */
 import React from 'react'
-import SectionFullWidth from 'components/SectionFullWidth'
-import SectionContainer from 'components/SectionContainer'
 // import Button from 'components/Button'
-// add back in after button gets merged into master
 
 import styles from './styles.css'
 
@@ -18,7 +15,7 @@ type Props = {
   title: Array<string>,
   bannerText: string,
   bannerImage: string,
-  bannerImageOverlay: 'overlayTrue' | 'overlayFalse',
+  bannerImageOverlay: 'overlayDark' | 'overlayLight' | 'overlayOff',
   hasButton: boolean,
   hasContentImage: boolean,
   contentImage: string,
@@ -104,24 +101,22 @@ const ContentBanner = ({
   // link = linkDefaults
 }: Props) => {
   return (
-    <SectionFullWidth>
-      <section className={styles.banner}>
-        <span className={styles[bannerImageOverlay]}>
-          <img className={`${styles.bannerImage} bgImage`} src={bannerImage} alt={title} />
-        </span>
-        <SectionContainer>
-          <header className={styles.bannerHeader}>
-            {title.map((paragraph, i) => (<h1 className={styles.h1} key={i}>{paragraph}</h1>))}
-          </header>
-          <section className={styles.bannerText}>
-            <p className={styles.p}>{bannerText}</p>
-          </section>
-          {renderContentImage({
-            hasContentImage, contentImage, hasContentImageText, contentImageText, title
-          })}
-        </SectionContainer>
-      </section>
-    </SectionFullWidth>
+    <section className={styles.banner}>
+      <span className={styles[bannerImageOverlay]}>
+        <img className={`${styles.bannerImage} bgImage`} src={bannerImage} alt={title} />
+      </span>
+      <div className={styles.content}>
+        <header className={styles.bannerHeader}>
+          {title.map((paragraph, i) => (<h1 className={styles.h1} key={i}>{paragraph}</h1>))}
+        </header>
+        <section className={styles.bannerText}>
+          <p className={styles.p}>{bannerText}</p>
+        </section>
+        {renderContentImage({
+          hasContentImage, contentImage, hasContentImageText, contentImageText, title
+        })}
+      </div>
+    </section>
   )
 }
 

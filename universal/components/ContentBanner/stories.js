@@ -4,6 +4,9 @@ import { WithNotes } from '@kadira/storybook-addon-notes'
 import { withKnobs, text, select, boolean } from '@kadira/storybook-addon-knobs'
 import ContentBanner from './component'
 
+import bgImg from './assets/bgImg.jpg'
+import extraImg from './assets/extraImg.png'
+
 const notes = 'This story demonstrates the props that can be passed to ContentBanner.'
 
 const defaulText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -12,10 +15,11 @@ const defaulText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 const Props = {
   title: ['Title Text'],
   bannerText: defaulText,
-  bannerImage: 'https://placekitten.com/g/1280/900',
+  bannerImage: bgImg,
   bannerImageOverlay: [
-    'overlayTrue',
-    'overlayFalse'
+    'overlayDark',
+    'overlayLight',
+    'overlayOff'
   ],
   hasButton: [
     true,
@@ -25,11 +29,12 @@ const Props = {
     true,
     false
   ],
-  contentImage: 'https://placekitten.com/g/400/400',
+  contentImage: extraImg,
   hasContentImageText: [
     true,
     false
-  ]
+  ],
+  contentImageText: 'Cool Cats 4 Lyfe!'
 }
 
 storiesOf('ContentBanner', module)
@@ -44,19 +49,21 @@ storiesOf('ContentBanner', module)
           bannerImageOverlay={
             select('Does this background image need an overlay for contrast?',
             Props.bannerImageOverlay,
-            Props.bannerImageOverlay[1])
+            Props.bannerImageOverlay[0])
           }
           hasButton={boolean('Does this need a button?', Props.hasButton, Props.hasButton[1])}
           hasContentImage={
             boolean('Do you want an additional image in the bottom right?',
             Props.hasContentImage,
-            Props.hasContentImage[1])
+            Props.hasContentImage[0])
           }
+          contentImage={text('URL to additional image:', Props.contentImage)}
           hasContentImageText={
             boolean('Need type above the extra image?',
             Props.hasContentImageText,
-            Props.hasContentImageText[1])
+            Props.hasContentImageText[0])
           }
+          contentImageText={text('Extra Image Text:', Props.contentImageText)}
         />
       </WithNotes>
     )
