@@ -30,8 +30,8 @@ function Button ({
   const props = {
     className: `${styles[color]} ${styles.button}`,
     href: url,
-    onClick: Function,
-    target: target
+    target: target,
+    onClick: undefined
   }
 
   if (disabled) {

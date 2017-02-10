@@ -75,7 +75,7 @@ describe('(Button) component', () => {
     })
 
     it('assigns a click handler', () => {
-      expect(targetProps.onClick).toEqual(Function)
+      expect(targetProps.onClick).toEqual(undefined)
     })
   })
 
