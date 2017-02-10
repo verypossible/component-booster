@@ -87,18 +87,6 @@
   padding: 0 0 1.5rem 0;
   color: white;
   text-align: inherit;
-  &::after {
-    content: '';
-    display: inline-block;
-    width: 3.4375rem;
-    height: .0625rem;
-    margin: 2rem 0 0 0;
-    padding: 0 0;
-    float: none;
-    clear: both;
-    background: white;
-    text-align: center;
-  }
 }
 
 .h1 {
