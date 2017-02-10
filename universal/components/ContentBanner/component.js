@@ -1,15 +1,8 @@
 /* @flow */
 import React from 'react'
-// import Button from 'components/Button'
+import Button from 'components/Button'
 
 import styles from './styles.css'
-
-// type LinkProps = {
-//   linkText: string,
-//   linkTo: string,
-//   linkStyle: string,
-//   target: string
-// }
 
 type Props = {
   title: Array<string>,
@@ -21,32 +14,21 @@ type Props = {
   contentImage: string,
   hasContentImageText: boolean,
   contentImageText: string,
-  // link: LinkProps
 };
 
-// const linkDefaults = {
-//   linkText: 'Button Text',
-//   linkTo: 'javascript:void(0)',
-//   linkStyle: 'tealBG',
-//   target: '_blank'
-// }
-
 // True/False Logic For Button
-// function renderButton ({
-//     hasButton,
-//     link
-//   }: { hasButton: boolean, link: LinkProps }) {
-//   if (hasButton) {
-//     return (
-//       <section className={styles.buttonWrap}>
-//         <Button {...link} />
-//       </section>
-//     )
-//   }
-//   return null
-// }
-// Add the following back in after the Button component exists
-// {renderButton({ hasButton, link })}
+function renderButton ({
+    hasButton
+  }: { hasButton: boolean }) {
+  if (hasButton) {
+    return (
+      <section className={styles.buttonWrap}>
+        <Button text="Button" color="light" />
+      </section>
+    )
+  }
+  return null
+}
 
 // True/False Logic Content Image
 function renderContentImageText ({
@@ -98,7 +80,6 @@ const ContentBanner = ({
   contentImage,
   hasContentImageText,
   contentImageText
-  // link = linkDefaults
 }: Props) => {
   return (
     <section className={styles.banner}>
@@ -112,6 +93,7 @@ const ContentBanner = ({
         <section className={styles.bannerText}>
           <p className={styles.p}>{bannerText}</p>
         </section>
+        {renderButton({ hasButton })}
         {renderContentImage({
           hasContentImage, contentImage, hasContentImageText, contentImageText, title
         })}
