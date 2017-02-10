@@ -53,6 +53,9 @@ yarn run test -- --watch
 
 # start the storybook server
 yarn start
+
+# run flow
+yarn run flow
 ```
 
 ## Component Naming Conventions
