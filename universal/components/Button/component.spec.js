@@ -74,7 +74,7 @@ describe('(Button) component', () => {
       expect(targetProps.href).toEqual('blank_url')
     })
 
-    it('assigns a click handler', () => {
+    it('assigns does not assign a click handler', () => {
       expect(targetProps.onClick).toEqual(undefined)
     })
   })

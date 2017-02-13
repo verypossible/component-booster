@@ -3,77 +3,41 @@ import ContentList from './component'
 import { shallow } from 'enzyme'
 
 describe('(ContentList) component', () => {
-  it('renders ok only with a title and items', () => {
-    const props = {
-      hasTitle: true,
-      items: [
-        'List Item',
-        'List Item',
-        'List Item'
-      ]
-    }
-    const subject = shallow(<ContentList {...props} />)
-    const target = subject.find('div')
+  describe('without any props', () => {
+    it('will break because there are no items provided', () => {
+      expect(() => {
+        shallow(<ContentList />)
+      }).toThrowError('you need to supply items for the list')
+    })
 
-    expect(target.length).toEqual(1)
+    it('will not break if we provide at least one item', () => {
+      const props = {
+        items: ['List Item']
+      }
+
+      const subject = shallow(<ContentList {...props} />)
+      expect(subject.find('li').text()).toEqual('List Item')
+    })
   })
 
-  it('renders ok without any props except items', () => {
+  describe('with one item', () => {
     const props = {
-      items: [
-        'List Item',
-        'List Item',
-        'List Item'
-      ]
+      items: ['List Item']
     }
-    const subject = shallow(<ContentList {...props} />)
-    const target = subject.find('div')
 
-    expect(target.length).toEqual(1)
-  })
+    it('will render the title if we pass it', () => {
+      const subject = shallow(<ContentList {...props} title="title_text" />)
+      expect(subject.find('h3').text()).toEqual('title_text')
+    })
 
-  it('should not render a title if it does not have one', () => {
-    const props = {
-      hasTitle: false,
-      items: [
-        'List Item',
-        'List Item',
-        'List Item'
-      ]
-    }
-    const subject = shallow(<ContentList {...props} />)
-    const target = subject.find('header')
+    it('will not render a title if none is provided', () => {
+      const subject = shallow(<ContentList {...props} />)
+      expect(subject.find('h3').length).toEqual(0)
+    })
 
-    expect(target.length).toEqual(0)
-  })
-
-  it('renders an unordered list, with items', () => {
-    const props = {
-      items: [
-        'List Item',
-        'List Item',
-        'List Item'
-      ],
-      bulletList: true
-    }
-    const subject = shallow(<ContentList {...props} />)
-    const target = subject.find('ul')
-
-    expect(target.length).toEqual(1)
-  })
-
-  it('renders an ordered list, with items', () => {
-    const props = {
-      items: [
-        'List Item',
-        'List Item',
-        'List Item'
-      ],
-      bulletList: false
-    }
-    const subject = shallow(<ContentList {...props} />)
-    const target = subject.find('ol')
-
-    expect(target.length).toEqual(1)
+    it('renders an UL', () => {
+      const subject = shallow(<ContentList {...props} />)
+      expect(subject.find('ul').length).toEqual(1)
+    })
   })
 })
