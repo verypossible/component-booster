@@ -1,0 +1,63 @@
+/* List Types */
+.h3 {
+  margin-bottom: 0.5em;
+}
+
+.ul {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 0;
+  float: left;
+
+  li {
+    list-style-type: disc;
+    list-style-position: outside;
+    padding-left: .25rem;
+  }
+}
+
+.ol {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 0;
+  float: left;
+
+  li {
+    list-style-type: inherit;
+    list-style-position: outside;
+    padding-left: .25rem;
+  }
+}
+
+/* li widths */
+.itemWidth {
+  margin: 0 0 .25em 0;
+  padding: 0 0;
+  font-size: .88em;
+  line-height: 150%;
+  letter-spacing: 0;
+  text-align: inherit;
+  color: inherit;
+}
+
+.full {
+  composes: itemWidth;
+  width: 100%;
+}
+
+.half {
+  composes: itemWidth;
+  width: 50%;
+}
+
+.quarter {
+  composes: itemWidth;
+  width: 25%;
+}
+
+.third {
+  composes: itemWidth;
+  width: 33%;
+}
