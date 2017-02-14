@@ -1,0 +1,22 @@
+.container {
+  background-color: #F0F0F0;
+  height: auto;
+  width: 100%;
+}
+.title {
+  font-size: 2rem;
+  margin: 0;
+  width: 100%
+}
+.imageWrapper {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+}
+.image {
+  width: 100%;
+  margin: .5rem;
+  height: 40vh;
+  background: no-repeat center;
+  background-size: cover;
+}
