@@ -1,3 +1,5 @@
+import 'styles/vendor/normalize.css'
+import 'styles/core.css'
 import React from 'react'
 import { configure, addDecorator } from '@kadira/storybook';
 

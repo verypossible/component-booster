@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+	flex-wrap: wrap;
+}
+.oneCol > div {
+  width: 100%;
+}
+.twoCol > div {
+	width: 50%;
+}
+.threeCol > div {
+  width: 33%;
+}
+.fourCol > div {
+  width: 25%;
+}

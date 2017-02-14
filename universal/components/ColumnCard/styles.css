@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+	flex-wrap: wrap;
+  padding: 1rem;
+  background-color: #F0F0F0;
+}
+.title {
+  font-size: 2rem;
+  margin: 0;
+  width: 100%
+}
+.body {
+  font-size: 1rem;
+  width: 100%
+}
+.span12 {
+  width: 100%;
+}
+.span6 {
+	width: 50%;
+}
+.span4 {
+  width: 33%;
+}
+.span3 {
+  width: 25%;
+}

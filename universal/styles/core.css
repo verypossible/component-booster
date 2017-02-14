@@ -1,0 +1,27 @@
+html {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  font-size: 16px;
+}
+i {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/*Enable this to display lost Grid debugging in browser*/
+ /*html {
+  lost-utility: edit rgb(15, 150, 25);
+}*/
