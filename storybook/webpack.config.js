@@ -1,20 +1,15 @@
 const path = require('path')
 
-const webpack = require('../build/webpack.babel')
-const appConfig = require('../config/index').default
 const postcss = require('../postcss.config')
 const genDefaultConfig = require('@kadira/storybook/dist/server/config/defaults/webpack.config.js')
 
-const webpackConfig = webpack.config.default
-const loaders = webpack.loaders.default
+const loaders = require('../build/webpack.loaders')
 
 const UNIVERSAL = path.resolve(__dirname, '../universal')
 const NODE_MODULES = path.resolve(__dirname, 'node_modules')
 
-const env = appConfig.env
-
-module.exports = function(config, env) {
-  var config = genDefaultConfig(config, env)
+module.exports = function (c, env) {
+  var config = genDefaultConfig(c, env)
 
   // Extend it as you need.
   config.context = UNIVERSAL
@@ -33,11 +28,14 @@ module.exports = function(config, env) {
     {
       test: /\.json$/,
       loader: 'json',
-      include: path.resolve(__dirname, '../'),
+      include: path.resolve(__dirname, '../')
     },
     {
       test: /\.css$/,
-      loaders: [ 'style', 'css-loader?modules=true&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'],
+      loaders: [
+        'style',
+        'css-loader?modules=true&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'
+      ],
       include: path.resolve(__dirname, '../')
     }
   ]
@@ -45,8 +43,8 @@ module.exports = function(config, env) {
   config.module.loaders.push(...loaders)
 
   config.postcss = function () {
-      return postcss.plugins
-    }
+    return postcss.plugins
+  }
 
   return config
 }

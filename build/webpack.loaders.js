@@ -1,8 +1,4 @@
-import config from '../config'
-
-const paths = config.utils_paths
-
-export default [
+module.exports = [
   {
     test: /\.md$/,
     use: [
@@ -52,16 +48,6 @@ export default [
     query: {
       prefix: 'fonts/',
       name: '[path][name].[ext]'
-    }
-  }, {
-    test: /\.svg$/,
-    loader: 'url-loader',
-    include: paths.universal('styles/fonts'),
-    query: {
-      prefix: 'fonts/',
-      name: '[path][name].[ext]',
-      limit: 10000,
-      mimetype: 'image/svg+xml'
     }
   }, {
     test: /\.(png|jpg)$/,
