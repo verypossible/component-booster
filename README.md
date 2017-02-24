@@ -51,8 +51,11 @@ yarn run test
 # run tests and watch
 yarn run test -- --watch
 
-# start the storybook server
+# start the development server
 yarn start
+
+# start the storybook server
+yarn run storybook
 
 # run flow
 yarn run flow
